@@ -1,0 +1,4 @@
+$(V).SILENT:
+
+all:
+	@if not exist bin mkdir bin

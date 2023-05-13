@@ -1,0 +1,6 @@
+$(V).SILENT:
+
+BIN = bin
+
+all:
+	mkdir -p ${BIN}
