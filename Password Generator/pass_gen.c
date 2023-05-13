@@ -69,7 +69,11 @@ char *satisfacerRequisitos(Configuracion config);
 int main(int argc, char **argv) {
     Configuracion config;
 
-    if(!existeConfiguracion(CONFIG_FILE)) {
+    // Si se especifica el fichero por parametro y el fichero existe
+    if (argc > 1 && existeConfiguracion(argv[1])) {
+        cargarConfiguracion(argv[1], &config);
+    }
+    else if(!existeConfiguracion(CONFIG_FILE)) {
         // Reservo memoria para poder almacenar un set
         config.sets = malloc(sizeof(Set));
 
