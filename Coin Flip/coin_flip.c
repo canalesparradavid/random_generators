@@ -1,3 +1,13 @@
+/*
+ * FICHERO: coin_flip.c
+ * DESCRIPCION:
+ * 		Este programa simula el lanzamiento de una moneda
+ *
+ * HISTORICO:
+ * 		v1.0 Creado por David Canales Parra el 13/05/2023
+ * 			Esta version permite que se lance una moneda al aire una unica vez
+ * 			por ejecucion.
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
