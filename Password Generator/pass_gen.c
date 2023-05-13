@@ -17,6 +17,8 @@
 #include <string.h>
 #include <stdbool.h>
 
+#define CONFIG_FILE "config.txt"
+
 typedef struct set {
     char *nombre;
     char *caracteres;
@@ -67,7 +69,7 @@ char *satisfacerRequisitos(Configuracion config);
 int main(int argc, char **argv) {
     Configuracion config;
 
-    if(!existeConfiguracion("config.txt")) {
+    if(!existeConfiguracion(CONFIG_FILE)) {
         // Reservo memoria para poder almacenar un set
         config.sets = malloc(sizeof(Set));
 
@@ -82,7 +84,7 @@ int main(int argc, char **argv) {
         );
     }
     else {
-
+        cargarConfiguracion(CONFIG_FILE, &config);
     }
 
     // Inicializo el generador de numeros aleatorios
@@ -122,11 +124,36 @@ bool existeConfiguracion(char *config_file) {
 }
 
 void cargarConfiguracion(char *config_file, Configuracion *config) {
+    FILE *in = fopen(config_file, "r");
+    char nombre_set[100], caracteres_set[1024];
+    int uso_minimo_set;
 
+    // Cargo los valores de la configuracion
+    fscanf(in, "length: %d\n", &config->pass_size);
+    fscanf(in, "sets: %d\n", &config->numero_sets);
+
+    // Reservo memoria para almacenar los sets
+    config->sets = malloc(sizeof(Set) * config->numero_sets);
+
+    // Genero los diferentes sets
+    for (int set_index = 0; set_index < config->numero_sets; set_index++) {
+        fscanf(in, "\t<%[^,],%d>", nombre_set, &uso_minimo_set);
+        fscanf(in, "\t\t%s", caracteres_set);
+
+        printf("n: %s\nc: %s\nd: %d\n", nombre_set, caracteres_set, uso_minimo_set);
+
+        crearSet(
+            &config->sets[set_index],
+            nombre_set,
+            caracteres_set,
+            uso_minimo_set
+        );
+    }
 }
 
 char *satisfacerRequisitos(Configuracion config) {
     char *pseudo_contrasena = malloc(sizeof(char) * (config.pass_size + 1));
+    pseudo_contrasena[config.pass_size] = '\0';
 
     int i = 0;
     for (int set_index = 0; set_index < config.numero_sets; set_index++) {
@@ -159,12 +186,18 @@ char *shuffle(char *texto) {
 
     strcpy(aux, texto);
     for (int i = 0; i < strlen(texto); i++) {
-        int r = rand() % strlen(aux);
+        int aux_len = strlen(aux);
+        int r = rand() % aux_len;
         texto_desordenado[i] = aux[r];
 
         // Actualizo la string pero sin el caracter extraido
         aux[r] = '\0';
-        strcat(aux, &aux[r+1]);
+        if(r != aux_len) {
+            strcat(aux, &aux[r+1]);
+        }
+        else if(r == 0) {
+            aux = &aux[1];
+        }
     }
 
     return texto_desordenado;
