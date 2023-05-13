@@ -32,7 +32,10 @@ clear:
 
 all: clear create_dirs compile_programs
 
-compile_programs: coin_flip
+compile_programs: coin_flip pass_gen
 
 coin_flip:
 	gcc "Coin Flip/coin_flip.c" -o ./${COMPILE_DIR}/coin_flip
+
+pass_gen:
+	gcc "Password Generator/pass_gen.c" -o ./${COMPILE_DIR}/pass_gen
