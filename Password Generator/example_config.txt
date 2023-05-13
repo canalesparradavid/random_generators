@@ -1,15 +1,10 @@
 length: 8
 sets: 4
     <lower,1>
+        abcdefghijklmnopqrstuvwxyz
     <upper,1>
+        ABCDEFGHIJKLMNOPQRTSUVWXYZ
     <number,1>
+        0123456789
     <special,1>
-
-lower:
-    abcdefghijklmnopqrstuvwxyz
-upper:
-    ABCDEFGHIJKLMNOPQRTSUVWXYZ
-number:
-    0123456789
-special:
-    ?!@#$%^&*()_-;:.,/
+        ?!@#$%^&*()_-;:.,/
