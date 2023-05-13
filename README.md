@@ -32,4 +32,9 @@ o de la siguiente para compilar un programa en especifico
     <td>coin_flip</td>
     <td>Simula le lanzamiento de una moneda</td>
 </tr>
+<tr>
+    <td>Password Generator</td>
+    <td>pass_gen</td>
+    <td>Genera contraseñas aleatorias</td>
+</tr>
 </table>
