@@ -1,0 +1,15 @@
+length: 8
+sets: 4
+    <lower,1>
+    <upper,1>
+    <number,1>
+    <special,1>
+
+lower:
+    abcdefghijklmnopqrstuvwxyz
+upper:
+    ABCDEFGHIJKLMNOPQRTSUVWXYZ
+number:
+    0123456789
+special:
+    ?!@#$%^&*()_-;:.,/
