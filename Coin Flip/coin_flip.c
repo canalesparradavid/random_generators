@@ -17,7 +17,7 @@ int main(int argc, char **argv) {
 	}
 
 	// Espero a un input para cerrar el progama
-	printf("PRESIONE ENTER PARA CERRAR EL PROGRAMA...");
+	printf("\nPRESIONE ENTER PARA CERRAR EL PROGRAMA...");
 	scanf("[^\n]");
 
 	return 0;
