@@ -92,7 +92,6 @@ int main(int argc, char **argv) {
 
     // Genero la contraseña
     char *pseudo_contrasena = satisfacerRequisitos(config);
-    printf("%s\n", pseudo_contrasena);
     printf("%s\n", shuffle(pseudo_contrasena));
 
 	// Espero a un input para cerrar el progama
@@ -139,8 +138,6 @@ void cargarConfiguracion(char *config_file, Configuracion *config) {
     for (int set_index = 0; set_index < config->numero_sets; set_index++) {
         fscanf(in, "\t<%[^,],%d>", nombre_set, &uso_minimo_set);
         fscanf(in, "\t\t%s", caracteres_set);
-
-        printf("n: %s\nc: %s\nd: %d\n", nombre_set, caracteres_set, uso_minimo_set);
 
         crearSet(
             &config->sets[set_index],
@@ -199,6 +196,8 @@ char *shuffle(char *texto) {
             aux = &aux[1];
         }
     }
+
+    texto_desordenado[strlen(texto)] = '\0';
 
     return texto_desordenado;
 }
