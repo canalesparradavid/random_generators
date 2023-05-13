@@ -32,4 +32,7 @@ clear:
 
 all: clear create_dirs compile_programs
 
-compile_programs:
+compile_programs: coin_flip
+
+coin_flip:
+	gcc "Coin Flip/coin_flip.c" -o ./${COMPILE_DIR}/coin_flip

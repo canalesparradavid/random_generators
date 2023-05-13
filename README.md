@@ -20,3 +20,16 @@ Si por el contrario usted está trabajando sobre Linux, puede ejecutar los coman
 o de la siguiente para compilar un programa en especifico
 
     make lnx <nombre_programa>
+
+## Tabla programas
+<table>
+<tr style='font-weight:bold'>
+    <td>Programa</td><td>ID Programa</td><td>Descripcion</td>
+</tr>
+
+<tr>
+    <td>Coin Flip</td>
+    <td>coin_flip</td>
+    <td>Simula le lanzamiento de una moneda</td>
+</tr>
+</table>
