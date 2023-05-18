@@ -73,6 +73,7 @@ int main(int argc, char **argv) {
     if (argc > 1 && existeConfiguracion(argv[1])) {
         cargarConfiguracion(argv[1], &config);
     }
+    // Si no se especifica el fichero por parametro y no existe uno por defecto
     else if(!existeConfiguracion(CONFIG_FILE)) {
         // Reservo memoria para poder almacenar un set
         config.sets = malloc(sizeof(Set));
@@ -87,8 +88,15 @@ int main(int argc, char **argv) {
             1
         );
     }
+    // Si no se especifica el fichero por parametro pero existe uno por defecto
     else {
         cargarConfiguracion(CONFIG_FILE, &config);
+    }
+
+    // Si no se ha especificado una longitud de contraseña la pido por teclado
+    if (config.pass_size == -1) {
+        printf("Introduzca una longitud de contrase%ca: ", 164);
+        scanf("%d", &config.pass_size);
     }
 
     // Inicializo el generador de numeros aleatorios
@@ -99,6 +107,7 @@ int main(int argc, char **argv) {
     printf("%s\n", shuffle(pseudo_contrasena));
 
 	// Espero a un input para cerrar el progama
+    fflush(stdin);
 	printf("\nPRESIONE ENTER PARA CERRAR EL PROGRAMA...");
 	scanf("[^\n]");
 
