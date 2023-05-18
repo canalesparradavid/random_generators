@@ -30,7 +30,7 @@ create_dirs:
 clear:
 	$(REMOVE_DIR_COMMAND) $(COMPILE_DIR)
 
-all: clear create_dirs compile_programs
+all: clear create_dirs compile_programs dice_throw
 
 compile_programs: coin_flip pass_gen
 
@@ -39,3 +39,7 @@ coin_flip:
 
 pass_gen:
 	gcc "Password Generator/pass_gen.c" -o ./${COMPILE_DIR}/pass_gen
+
+dice_throw:
+	gcc "Dice Throw/dado.c" -c -o bin/dado.o -Wall
+	gcc "Dice Throw/dice_throw.c" ./${COMPILE_DIR}/dado.o -o ./${COMPILE_DIR}/dice_throw

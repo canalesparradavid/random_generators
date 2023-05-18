@@ -30,11 +30,16 @@ o de la siguiente para compilar un programa en especifico
 <tr>
     <td>Coin Flip</td>
     <td>coin_flip</td>
-    <td>Simula le lanzamiento de una moneda</td>
+    <td>Simula el lanzamiento de una moneda</td>
 </tr>
 <tr>
     <td>Password Generator</td>
     <td>pass_gen</td>
     <td>Genera contraseñas aleatorias</td>
+</tr>
+<tr>
+    <td>Dice Throw</td>
+    <td>dice_throw</td>
+    <td>Simula el lanzamiento de un dado de N caras</td>
 </tr>
 </table>
